@@ -1,16 +1,15 @@
 import './style.css';
 import Projects from './projects';
-//import changeToDo from "./changeToDo";
+import controlToDo from './controlToDo';
 
-const project1 = new Projects("Primo Progetto");
-project1.addToDo();
+const toDo = controlToDo();
 
-const project2 = new Projects("Secondo Progetto");
-project2.container.push(project1.container.slice());
-project1.container.splice(0 , 1);
+let firstToDo = toDo.create();
+let secondToDo = toDo.create();
 
-console.log(project1);
-console.log(project2);
+console.log(firstToDo, secondToDo);
+
+
 
 
 

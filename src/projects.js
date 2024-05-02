@@ -1,4 +1,4 @@
-import createToDo from "./createToDo";
+import controlToDo from "./controlToDo";
 
 class Projects {
     constructor(title, container = []) {
@@ -7,10 +7,7 @@ class Projects {
     }
 
     addToDo () {
-        let id = 0;
-        () => {this.container.push(createToDo(id));
-        id++;
-        }
+        this.container.push(prova.createToDo());
     }
 
     removeToDo () {
