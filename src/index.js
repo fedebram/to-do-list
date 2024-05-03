@@ -1,37 +1,24 @@
 import './style.css';
 import Projects from './projects';
 import controlToDo from './controlToDo';
+import controlDom from './controlDom';
+import { compareAsc} from "date-fns";
 
-const toDo = controlToDo();
+controlDom();
 
-let firstToDo = toDo.create();
-let secondToDo = toDo.create();
+const dates = [
+    new Date(1995, 6, 2),
+    new Date(1987, 1, 11),
+    new Date(1989, 6, 10),
+  ];
 
-console.log(firstToDo, secondToDo);
-
-
-
-
-
-/*const taskBtn = document.querySelector("#task");
-const projectsDiv = document.querySelector("#projects");
-
-taskBtn.addEventListener("click", () => {
-    project1.addToDo();
-    console.log(project1);
-    project1.changeToDo(0);
-    console.log(project1);
+dates.forEach(element => {
+    console.log(element);
 });
 
+dates.sort(compareAsc);
 
-/*const newDiv = document.createElement("div");
-newDiv.textContent = project1.title;
-projectsDiv.appendChild(newDiv);*/
-
-
-
-
-
-
-
+dates.forEach(element => {
+    console.log(element);
+});
 

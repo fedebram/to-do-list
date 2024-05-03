@@ -1,4 +1,3 @@
-import controlToDo from "./controlToDo";
 
 class Projects {
     constructor(title, container = []) {
@@ -6,12 +5,12 @@ class Projects {
         this.container = container;
     }
 
-    addToDo () {
-        this.container.push(prova.createToDo());
+    addToDo (toDo) {
+        this.container.push(toDo);
     }
 
-    removeToDo () {
-        this.container.splice(1, 1);
+    removeToDo (i) {
+        this.container.splice(i, 1);
     }
 
     changeToDo (index) {

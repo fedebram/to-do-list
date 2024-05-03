@@ -1,13 +1,15 @@
 import ToDos from "./toDos";
-import Projects from "./projects";
+import { compareAsc, format } from "date-fns";
 
 function controlToDo() {
-    let id = 0;
+    let arr = [];
 
     function create() {
+        //prompt to fill proprierties of a new todo
         let title = prompt("Insert title: ");
         let description = prompt("Insert description: ");
-        let dueDate = prompt("Insert date end: ");
+
+        let dueDate = format(new Date(prompt("Insert due date: ")), "dd-MM-yy");
 
         let priority = prompt("Priority?: ");
         if (priority === "true") priority = true;
@@ -19,15 +21,22 @@ function controlToDo() {
         if (checklist === "yes") checklist = true;
         else checklist = false;
 
-        let toDo = new ToDos(title, description, dueDate, priority, notes, checklist, id);
-        id++;
+        let toDo = new ToDos(title, description, dueDate, priority, notes, checklist);
+
+        //push the new todo in an array, in order to further manipulation
+        arr.push(toDo)
         return toDo;
     }
 
-    function add() {
+    function remove(i) {
+        arr.splice(i, 1);
     }
 
-    return { create }
+    function change(i) {
+        arr[i].title = prompt("insert !!! title: ");
+    }
+
+    return { create, remove, change, arr }
 }
 
 export default controlToDo;
