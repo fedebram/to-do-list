@@ -22,7 +22,7 @@ function controlDom() {
         toDo.create();
         const newToDo = document.createElement("div");
         newToDo.textContent = `Due date: ${toDo.arr[toDo.arr.length-1].dueDate}, project: ${toDo.arr[toDo.arr.length-1].project}`;
-        newToDo.setAttribute("id", `${toDo.arr.length-1}`);
+        newToDo.setAttribute("data-id", `${toDo.arr.length-1}`);
         content.appendChild(newToDo);
         
         //create the associate button

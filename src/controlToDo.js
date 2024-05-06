@@ -24,19 +24,27 @@ function controlToDo() {
         let toDo = new ToDos(title, description, dueDate, priority, notes, checklist);
 
         //push the new todo in an array, in order to further manipulation
-        arr.push(toDo)
+        arr.push(toDo);
+        saveTasksToLocalStorage(arr);
         return toDo;
     }
 
     function remove(i) {
         arr.splice(i, 1);
+        saveTasksToLocalStorage(arr);
     }
 
     function change(i) {
         arr[i].title = prompt("insert !!! title: ");
     }
 
+
     return { create, remove, change, arr }
 }
 
+export function saveTasksToLocalStorage(arr) {
+    localStorage.setItem('tasks', JSON.stringify(arr));
+}
+
 export default controlToDo;
+
